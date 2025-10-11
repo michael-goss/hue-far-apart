@@ -1,0 +1,36 @@
+:root {
+  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+
+  --grey-400: #F4F4F5;
+  --grey-500: #E4E4E7;
+  --grey-700: #53525A;
+  --grey-900: #18181B;
+  --black-900: #000;
+
+  color: var(--grey-700);
+  background-color: var(--grey-400);
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-height: 100vh;
+}
+
+h1,h2,h3,h4,h5 {
+  color: var(--black-900);
+}
+
+.card {
+  padding: 2em;
+}
+
+#app {
+  max-width: 44rem;
+  margin: 0 auto;
+}
+
