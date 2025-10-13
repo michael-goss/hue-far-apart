@@ -2,9 +2,10 @@
   // import svelteLogo from "./assets/svelte.svg";
   // import viteLogo from "/vite.svg";
   import ColorPicker from "./lib/ColorPicker.svelte";
+  import type { Color } from "./lib/types";
 
-  let color0 = $state("");
-  let color1 = $state("");
+  let color0: Color | null = $state(null);
+  let color1: Color | null = $state(null);
 </script>
 
 <main>
@@ -14,12 +15,12 @@
     <div class="color-pickers">
       <ColorPicker
         color={color0}
-        on_color_change={(new_color: string) => (color0 = new_color)}
+        on_color_change={(new_color: Color) => (color0 = new_color)}
         index={0}
       />
       <ColorPicker
         color={color1}
-        on_color_change={(new_color: string) => (color1 = new_color)}
+        on_color_change={(new_color: Color) => (color1 = new_color)}
         index={1}
       />
     </div>

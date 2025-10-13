@@ -1,27 +1,27 @@
 <script lang="ts">
-  import { color_hex_to_rgb } from "./utils";
+  import type { Color } from "./types";
+  import { color_to_hex, hex_to_color } from "./utils";
 
   let {
     color,
     on_color_change,
     index,
   }: {
-    color: string;
-    on_color_change: (new_color: string) => void;
+    color: Color | null;
+    on_color_change: (new_color: Color) => void;
     index: number;
   } = $props();
 
-  let input_hex_color = $state(color);
-  const { red, green, blue } = $derived(color_hex_to_rgb(color));
-  const has_color_selected = $derived(!!color);
+  let input_hex_color = $state("");
   const has_eye_dropper = "EyeDropper" in window;
+  const hex_color = $derived(color_to_hex(color));
 
   async function pick_color() {
     if (has_eye_dropper) {
       const eye_dropper = new (window as any).EyeDropper();
       try {
         const result = await eye_dropper.open();
-        on_color_change(result.sRGBHex);
+        on_color_change(hex_to_color(result.sRGBHex));
       } catch (err) {
         // user cancelled
       }
@@ -33,7 +33,7 @@
 
   function handle_hex_input() {
     if (/^#[0-9A-Fa-f]{6}$/.test(input_hex_color)) {
-      on_color_change(input_hex_color);
+      on_color_change(hex_to_color(input_hex_color));
     }
   }
 </script>
@@ -41,12 +41,10 @@
 <div class="color-picker card">
   <h3>Color {index + 1}</h3>
   <div
-    class={`color-field ${!has_color_selected ? "checker-pattern" : ""}`}
-    style="background-color: {color} "
+    class={`color-field ${!color ? "checker-pattern" : ""}`}
+    style={color ? `background-color: ${hex_color}` : ""}
   >
-    {#if has_color_selected}{:else}<span class="color-field-text"
-        >no color selected</span
-      >{/if}
+    {#if !color}<span class="color-field-text">no color selected</span>{/if}
   </div>
   <div class="color-action">
     <button onclick={pick_color}>Pick Color</button>
@@ -54,7 +52,8 @@
       <input
         type="color"
         id="color-input-{index}"
-        bind:value={color}
+        bind:value={input_hex_color}
+        oninput={handle_hex_input}
         style="visibility: hidden; position:absolute; pointer-events: none;"
       />
       <input
@@ -65,10 +64,10 @@
         maxlength="7"
       />
     {/if}
-    {#if has_color_selected}
+    {#if color}
       <div class="color-meta">
-        <span>RGB {red} {green} {blue}</span>
-        <span>HEX {color.toUpperCase()}</span>
+        <span>RGB {color.red} {color.green} {color.blue}</span>
+        <span>HEX {hex_color}</span>
       </div>
     {/if}
   </div>

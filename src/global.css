@@ -10,7 +10,11 @@
   --grey-700: #53525A;
   --grey-900: #18181B;
   --black-900: #000;
+  --yellow-400: #ffff00;
+  --yellow-500: #e5e500;
 
+
+  --shadow-size: 0.2rem;
   --card-radius: 1rem;
 
   color: var(--grey-700);
@@ -32,21 +36,46 @@ h1,h2,h3,h4,h5 {
   color: var(--black-900);
 }
 
-.card {
-  padding: 1rem;
+button {
+  --height: 2.5rem;
+  height: var(--height);
   border: 2px solid var(--black-900);
-  border-radius: var(--card-radius);
-  box-shadow: 0.2rem 0.2rem 0 var(--black-900);
-}
+  border-radius: calc(var(--height)/2);
+  box-shadow: var(--shadow-size) var(--shadow-size) 0 var(--black-900);
+  background-color: var(--yellow-400);
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin: 0.5rem 0;
+  cursor: pointer;
+  transition: box-shadow 0.05s ease, transform 0.05s ease;
+  text-transform: uppercase;
 
-@media (min-width: 600px) {
-  .card {
-    padding: 1.5rem;
+  &:hover{ 
+    background-color: var(--yellow-500); 
+  }
+
+  &:active{
+    background-color: var(--yellow-500); 
+    box-shadow: 0 0 0 var(--black-900);
+    transform: translate(var(--shadow-size), var(--shadow-size));
   }
 }
 
 #app {
   max-width: 44rem;
   margin: 0 auto;
+}
+
+.card {
+  padding: 1rem;
+  border: 2px solid var(--black-900);
+  border-radius: var(--card-radius);
+  box-shadow: var(--shadow-size) var(--shadow-size) 0 var(--black-900);
+}
+
+@media (min-width: 600px) {
+  .card {
+    padding: 1.5rem;
+  }
 }
 
