@@ -1,81 +1,102 @@
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
-  line-height: 1.5;
-  font-weight: 400;
+	font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+	line-height: 1.5;
+	font-weight: 400;
 
+	--white-100: #fff;
 
-  --white-100: #fff;
-  --grey-400: #F4F4F5;
-  --grey-500: #E4E4E7;
-  --grey-700: #53525A;
-  --grey-900: #18181B;
-  --black-900: #000;
-  --yellow-400: #ffff00;
-  --yellow-500: #e5e500;
+	--grey-400: #f4f4f5;
+	--grey-500: #e4e4e7;
+	--grey-600: #8b8b8d;
+	--grey-700: #53525a;
+	--grey-900: #18181b;
 
+	--black-900: #000;
 
-  --shadow-size: 0.2rem;
-  --card-radius: 1rem;
+	--yellow-400: #fff202;
+	--yellow-500: #e5d901;
+	--yellow-grey: #fffccc;
 
-  color: var(--grey-700);
+	--shadow-size: 0.2rem;
+	--card-radius: 1rem;
+
+	color: var(--grey-700);
 }
-
 
 body {
-  margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: flex-start;
-  min-height: 100vh;
-  background-color: var(--grey-400);
+	margin: 0;
+	display: flex;
+	justify-content: center;
+	align-items: flex-start;
+	min-height: 100vh;
+	background-color: var(--grey-400);
 }
 
-h1,h2,h3,h4,h5 {
-  padding: 0;
-  margin: 0;
-  color: var(--black-900);
+h1,
+h2,
+h3,
+h4,
+h5 {
+	padding: 0;
+	margin: 0;
+	color: var(--black-900);
 }
 
 button {
-  --height: 2.5rem;
-  height: var(--height);
-  border: 2px solid var(--black-900);
-  border-radius: calc(var(--height)/2);
-  box-shadow: var(--shadow-size) var(--shadow-size) 0 var(--black-900);
-  background-color: var(--yellow-400);
-  font-size: 0.85rem;
-  font-weight: bold;
-  margin: 0.5rem 0;
-  cursor: pointer;
-  transition: box-shadow 0.05s ease, transform 0.05s ease;
-  text-transform: uppercase;
+	--height: 2.5rem;
+	height: var(--height);
+	border: 2px solid var(--black-900);
+	border-radius: calc(var(--height) / 2);
+	box-shadow: var(--shadow-size) var(--shadow-size) 0 var(--black-900);
+	color: var(--black-900);
+	background-color: var(--yellow-400);
+	font-size: 0.85rem;
+	font-weight: bold;
+	margin: 0.5rem 0;
+	cursor: pointer;
+	transition:
+		box-shadow 0.05s ease,
+		transform 0.05s ease;
+	text-transform: uppercase;
 
-  &:hover{ 
-    background-color: var(--yellow-500); 
-  }
+	&:hover {
+		background-color: var(--yellow-500);
+	}
 
-  &:active{
-    background-color: var(--yellow-500); 
-    box-shadow: 0 0 0 var(--black-900);
-    transform: translate(var(--shadow-size), var(--shadow-size));
-  }
+	&:active {
+		background-color: var(--yellow-500);
+		box-shadow: 0 0 0 var(--black-900);
+		transform: translate(var(--shadow-size), var(--shadow-size));
+	}
+
+	&:disabled {
+		opacity: 0.5;
+		background-color: var(--yellow-grey);
+		cursor: not-allowed;
+		pointer-events: none;
+	}
+}
+
+ul {
+	list-style-type: none;
+	padding: 0;
 }
 
 #app {
-  max-width: 44rem;
-  margin: 0 auto;
+	max-width: 44rem;
+	width: 100%;
+	margin: 0 auto;
 }
 
 .card {
-  padding: 1rem;
-  border: 2px solid var(--black-900);
-  border-radius: var(--card-radius);
-  box-shadow: var(--shadow-size) var(--shadow-size) 0 var(--black-900);
+	padding: 1rem;
+	border: 2px solid var(--black-900);
+	border-radius: var(--card-radius);
+	box-shadow: var(--shadow-size) var(--shadow-size) 0 var(--black-900);
 }
 
 @media (min-width: 600px) {
-  .card {
-    padding: 1.5rem;
-  }
+	.card {
+		padding: 1.5rem;
+	}
 }
-
