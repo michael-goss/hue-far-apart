@@ -1,6 +1,6 @@
 <script lang="ts">
-	// import svelteLogo from "./assets/svelte.svg";
-	// import viteLogo from "/vite.svg";
+	import mg_logo from "./assets/logo.svg"
+	import github_logo from "./assets/github.svg"
 	import { create_local_store, clear_local_store } from "./lib/localStore.svelte"
 	import CalculateButton from "./lib/CalculateButton.svelte"
 	import ColorPicker from "./lib/ColorPicker.svelte"
@@ -41,6 +41,9 @@
 
 <main>
 	<h1>Hue Far Apart</h1>
+	<a href="https://www.michaelgoss.de" target="_blank" rel="noopener noreferrer">
+		<span>created by</span><img src={mg_logo} alt="Logo michaelgoss.de" />
+	</a>
 	<section class="card">
 		<Headline index={1} title="Select your colors" />
 		<div class="color-pickers">
@@ -65,21 +68,54 @@
 		<section class="card flex-card even-darker-card">
 			<div class="history-headline">
 				<Headline index={3} title="History" />
-				<button onclick={on_clear_store}>Clear History</button>
+				<button onclick={on_clear_store} ontouchstart={() => {}}>Clear History</button>
 			</div>
 			<History calculations={old_calculations.value} />
 		</section>
 	{/if}
+	<section class="card black-card">
+		<h2>Inspired by Distractible</h2>
+		<p>
+			This tool was created to solve a recurring challenge from the <a
+				href="https://spotify.link/distractible"
+				target="_blank"
+				rel="noopener noreferrer">Distractible podcast</a
+			>, where the wheel occasionally forces Mark to calculate RGB values by hand to see whose shirt
+			is closest to their background.
+		</p>
+	</section>
+	<a
+		href="https://github.com/michael-goss/hue-far-apart"
+		target="_blank"
+		rel="noopener noreferrer"
+		aria-label="View source on GitHub"
+		class="github-link"
+		><img src={github_logo} alt="GitHub Repository" />
+	</a>
 </main>
 
 <style>
 	main {
 		padding: 0.5rem;
+		margin-bottom: 2rem;
 	}
 
 	h1 {
 		font-size: 3rem;
 		text-align: center;
+	}
+
+	a {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+		align-items: center;
+		gap: 0.25rem;
+
+		& img {
+			height: 1rem;
+			width: auto;
+		}
 	}
 
 	section {
@@ -110,9 +146,35 @@
 		background-color: var(--grey-600);
 	}
 
+	.black-card {
+		background-color: var(--black-900);
+		color: var(--white-100);
+
+		h2 {
+			color: var(--white-100);
+		}
+
+		& a {
+			font-size: 1rem;
+			color: var(--yellow-400);
+			display: inline-block;
+		}
+	}
+
 	.history-headline {
 		display: flex;
 		flex-direction: row;
 		justify-content: space-between;
+	}
+
+	.github-link {
+		display: flex;
+		justify-content: flex-end;
+		margin-top: 1rem;
+
+		img {
+			width: 2rem;
+			height: 2rem;
+		}
 	}
 </style>

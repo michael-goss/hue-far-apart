@@ -25,11 +25,13 @@
 		flex-direction: column;
 		gap: 0.5rem;
 	}
+
 	li {
 		background-color: var(--white-100);
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
+		padding: 0.75rem;
 	}
 
 	.color-container {
@@ -37,7 +39,8 @@
 		flex-direction: row;
 		justify-content: center;
 		align-items: center;
-		gap: 0.5rem;
+		gap: 0.25rem;
+		font-size: 0.75rem;
 
 		& .color {
 			border: 2px solid black;
@@ -49,6 +52,21 @@
 
 	.distance {
 		font-weight: bold;
-		font-size: 1.5rem;
+		font-size: 1.25rem;
+	}
+
+	@media (min-width: 600px) {
+		li {
+			padding: 1rem;
+		}
+
+		.color-container {
+			gap: 0.5rem;
+			font-size: 1rem;
+		}
+
+		.distance {
+			font-size: 1.5rem;
+		}
 	}
 </style>

@@ -38,8 +38,11 @@
 	}
 
 	function handle_hex_input() {
-		if (/^#[0-9A-Fa-f]{6}$/.test(input_hex_color)) {
-			const new_color = hex_to_color(input_hex_color)
+		if (/^#?[0-9A-Fa-f]{6}$/.test(input_hex_color)) {
+			const hex_color_with_hash = input_hex_color.startsWith("#")
+				? input_hex_color
+				: `#${input_hex_color}`
+			const new_color = hex_to_color(hex_color_with_hash)
 			if (new_color) {
 				on_color_change(new_color)
 			}
@@ -53,31 +56,28 @@
 		class={`color-field ${!color ? "checker-pattern" : ""}`}
 		style={color ? `background-color: ${hex_color}` : ""}
 	>
-		{#if !color}<span class="color-field-text">no color selected</span>{/if}
+		{#if color}
+			<div class="color-meta">
+				<span><strong>RGB</strong> {color.red} {color.green} {color.blue}</span>
+				<span><strong>HEX</strong> {hex_color}</span>
+			</div>
+		{:else}<span class="color-field-text">no color selected</span>{/if}
 	</div>
 	<div class="color-action">
-		<button onclick={pick_color}>Pick Color</button>
-		{#if !has_eye_dropper}
+		{#if has_eye_dropper}
+			<button onclick={pick_color} ontouchstart={() => {}}>Pick Color</button>
+		{:else}
 			<input
-				type="color"
-				id="color-input-{index}"
-				bind:value={input_hex_color}
-				oninput={handle_hex_input}
-				style="visibility: hidden; position:absolute; pointer-events: none;"
-			/>
-			<input
+				id="manual-hex-color"
 				type="text"
 				bind:value={input_hex_color}
 				oninput={handle_hex_input}
-				placeholder="#FF00FF"
+				placeholder={window?.innerWidth >= 600 ? "Enter hex code (#FF00FF)" : "#FF00FF"}
 				maxlength="7"
+				aria-label="Enter hex color code"
+				autocomplete="off"
+				spellcheck="false"
 			/>
-		{/if}
-		{#if color}
-			<div class="color-meta">
-				<span>RGB {color.red} {color.green} {color.blue}</span>
-				<span>HEX {hex_color}</span>
-			</div>
 		{/if}
 	</div>
 </div>
@@ -90,6 +90,12 @@
 	.color-picker {
 		width: 100%;
 		background-color: var(--grey-400);
+		min-width: 0;
+
+		& input {
+			max-width: 100%;
+			min-width: 0;
+		}
 	}
 
 	.color-field {
@@ -98,9 +104,10 @@
 		aspect-ratio: 1;
 		border-radius: var(--card-radius);
 		display: flex;
-		justify-content: center;
-		align-items: center;
+		justify-content: flex-start;
+		align-items: flex-end;
 		text-align: center;
+		padding: 0.5rem;
 
 		& .color-field-text {
 			font-weight: bold;
@@ -120,6 +127,8 @@
 			0 10px,
 			10px -10px,
 			-10px 0px;
+		justify-content: center;
+		align-items: center;
 	}
 
 	.color-action {
@@ -133,5 +142,19 @@
 	.color-meta {
 		display: flex;
 		flex-direction: column;
+		align-items: flex-start;
+		background-color: white;
+		border: 2px solid var(--black-900);
+		border-radius: calc(var(--card-radius) / 2);
+		padding: 0.125rem 0.25rem;
+		font-size: 0.6rem;
+	}
+
+	@media (min-width: 600px) {
+		.color-meta {
+			padding: 0.25rem 0.5rem;
+			font-size: 0.8rem;
+			border-radius: var(--card-radius);
+		}
 	}
 </style>
