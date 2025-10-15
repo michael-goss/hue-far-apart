@@ -1,7 +1,7 @@
 <script lang="ts">
 	// import svelteLogo from "./assets/svelte.svg";
 	// import viteLogo from "/vite.svg";
-	import { createSessionStore } from "./lib/sessionStore.svelte"
+	import { create_local_store, clear_local_store } from "./lib/localStore.svelte"
 	import CalculateButton from "./lib/CalculateButton.svelte"
 	import ColorPicker from "./lib/ColorPicker.svelte"
 	import DistanceResult from "./lib/DistanceResult.svelte"
@@ -13,8 +13,8 @@
 	let color0: Color | null = $state(null)
 	let color1: Color | null = $state(null)
 	let distance: Distance = $state(null)
-	const old_calculations = createSessionStore<Calculation[]>("hue_far_apart_history", [])
-	$inspect(old_calculations)
+	const store_key = "hue_far_apart_history"
+	const old_calculations = create_local_store<Calculation[]>(store_key, [])
 
 	const on_calculate = (new_distance: Distance) => {
 		if (new_distance !== null && color0 !== null && color1 !== null) {
@@ -31,6 +31,11 @@
 				]
 			}
 		}
+	}
+
+	const on_clear_store = () => {
+		clear_local_store(store_key)
+		old_calculations.value = []
 	}
 </script>
 
@@ -58,7 +63,10 @@
 	</section>
 	{#if old_calculations.value.length}
 		<section class="card flex-card even-darker-card">
-			<Headline index={3} title="History" />
+			<div class="history-headline">
+				<Headline index={3} title="History" />
+				<button onclick={on_clear_store}>Clear History</button>
+			</div>
 			<History calculations={old_calculations.value} />
 		</section>
 	{/if}
@@ -77,11 +85,6 @@
 	section {
 		background-color: var(--white-100);
 		margin-top: 1.5rem;
-	}
-
-	h2 {
-		font-size: 1rem;
-		text-align: center;
 	}
 
 	.color-pickers {
@@ -105,5 +108,11 @@
 
 	.even-darker-card {
 		background-color: var(--grey-600);
+	}
+
+	.history-headline {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
 	}
 </style>

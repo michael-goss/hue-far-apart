@@ -58,6 +58,7 @@ button {
 		box-shadow 0.05s ease,
 		transform 0.05s ease;
 	text-transform: uppercase;
+	padding: 0 0.75rem;
 
 	&:hover {
 		background-color: var(--yellow-500);
@@ -75,6 +76,16 @@ button {
 		cursor: not-allowed;
 		pointer-events: none;
 	}
+}
+
+input[type="text"] {
+	border: 2px solid var(--black-900);
+	padding: 0.5rem;
+	font-size: 1rem;
+	font-family: inherit;
+	border-radius: calc(var(--card-radius) / 2);
+	background: var(--white-100);
+	outline: none;
 }
 
 ul {

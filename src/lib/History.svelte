@@ -8,8 +8,8 @@
 	{#each calculations as calculation}
 		<li class="card">
 			<div class="color-container">
-				<div class="color" style="background-color: {color_to_hex(calculation.color0)}" />
-				<div class="color" style="background-color: {color_to_hex(calculation.color1)}" />
+				<div class="color" style="background-color: {color_to_hex(calculation.color0)}"></div>
+				<div class="color" style="background-color: {color_to_hex(calculation.color1)}"></div>
 				<span>HEX {color_to_hex(calculation.color0)} | {color_to_hex(calculation.color1)}</span>
 			</div>
 			<div class="distance">
