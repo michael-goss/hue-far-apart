@@ -161,6 +161,10 @@ ul {
 		padding: 1.5rem;
 	}
 
+	button {
+		font-size: 1rem;
+	}
+
 	h2 {
 		font-size: 2rem;
 	}

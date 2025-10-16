@@ -1,6 +1,6 @@
 <script lang="ts">
-	import hue_far_apart_logo from "./assets/hue-far-apart.svg"
 	import mg_logo from "./assets/logo.svg"
+	import hue_far_apart_logo from "./assets/hue-far-apart.svg"
 	import github_logo from "./assets/github.svg"
 	import { create_local_store, clear_local_store } from "./lib/localStore.svelte"
 	import CalculateButton from "./lib/CalculateButton.svelte"
@@ -41,7 +41,7 @@
 </script>
 
 <main>
-	<h1><img src={hue_far_apart_logo} alt="Hue Far Apart" role="img" /></h1>
+	<h1><img src={hue_far_apart_logo} alt="Hue Far Apart" /></h1>
 	<a href="https://www.michaelgoss.de" target="_blank" rel="noopener noreferrer">
 		<span>created by</span><img src={mg_logo} alt="Logo michaelgoss.de" />
 	</a>

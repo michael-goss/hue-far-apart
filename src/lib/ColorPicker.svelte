@@ -85,6 +85,7 @@
 <style>
 	h3 {
 		text-align: center;
+		font-size: 1.125rem;
 	}
 
 	.color-picker {
@@ -151,6 +152,10 @@
 	}
 
 	@media (min-width: 600px) {
+		h3 {
+			font-size: 1.5rem;
+		}
+
 		.color-meta {
 			padding: 0.25rem 0.5rem;
 			font-size: 0.8rem;

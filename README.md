@@ -1,4 +1,4 @@
-# Hue Far Apart
+<img src="./src/assets/hue-far-apart.svg" alt="Hue Far Apart" style="transform: scaleY(0.8);" />
 
 A color distance calculator that measures how far apart two colors are using Euclidean distance in RGB color space.
 
