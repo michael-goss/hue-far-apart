@@ -64,6 +64,12 @@
 
 	.result-meta {
 		text-transform: uppercase;
-		font-size: 0.9rem;
+		font-size: 0.65rem;
+	}
+
+	@media (min-width: 600px) {
+		.result-meta {
+			font-size: 0.9rem;
+		}
 	}
 </style>

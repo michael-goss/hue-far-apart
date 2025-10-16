@@ -1,9 +1,33 @@
+@font-face {
+	font-family: "Hobeaux Bold";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("/fonts/Hobeaux-Bold.ttf") format("truetype");
+}
+
+@font-face {
+	font-family: "Apparat";
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url("/fonts/Apparat-Regular.otf") format("opentype");
+}
+
+@font-face {
+	font-family: "Apparat";
+	font-style: normal;
+	font-weight: bold;
+	font-display: swap;
+	src: url("/fonts/Apparat-Extrabold.otf") format("opentype");
+}
+
 * {
 	box-sizing: border-box;
 }
 
 :root {
-	font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
+	font-family: "Apparat", system-ui, sans-serif;
 	line-height: 1.5;
 	font-weight: 400;
 
@@ -44,6 +68,11 @@ h5 {
 	padding: 0;
 	margin: 0;
 	color: var(--black-900);
+	font-family: "Hobeaux Bold", sans-serif;
+}
+
+h2 {
+	font-size: 1.5rem;
 }
 
 a {
@@ -60,6 +89,8 @@ a {
 
 button {
 	--height: 2.5rem;
+	font-family: inherit;
+	font-weight: bold;
 	height: var(--height);
 	border: 2px solid var(--black-900);
 	border-radius: calc(var(--height) / 2);
@@ -128,5 +159,9 @@ ul {
 @media (min-width: 600px) {
 	.card {
 		padding: 1.5rem;
+	}
+
+	h2 {
+		font-size: 2rem;
 	}
 }

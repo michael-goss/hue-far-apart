@@ -1,4 +1,5 @@
 <script lang="ts">
+	import hue_far_apart_logo from "./assets/hue-far-apart.svg"
 	import mg_logo from "./assets/logo.svg"
 	import github_logo from "./assets/github.svg"
 	import { create_local_store, clear_local_store } from "./lib/localStore.svelte"
@@ -40,7 +41,7 @@
 </script>
 
 <main>
-	<h1>Hue Far Apart</h1>
+	<h1><img src={hue_far_apart_logo} alt="Hue Far Apart" role="img" /></h1>
 	<a href="https://www.michaelgoss.de" target="_blank" rel="noopener noreferrer">
 		<span>created by</span><img src={mg_logo} alt="Logo michaelgoss.de" />
 	</a>
@@ -80,8 +81,8 @@
 				href="https://spotify.link/distractible"
 				target="_blank"
 				rel="noopener noreferrer">Distractible podcast</a
-			>, where the wheel occasionally forces Mark to calculate RGB values by hand to see whose shirt
-			is closest to their background.
+			>, where the wheel occasionally forces Mark to calculate RGB color distances by hand to see
+			whose shirt is closest to their background.
 		</p>
 	</section>
 	<a
@@ -103,6 +104,8 @@
 	h1 {
 		font-size: 3rem;
 		text-align: center;
+		transform: scaleY(0.8);
+		line-height: 1px;
 	}
 
 	a {
