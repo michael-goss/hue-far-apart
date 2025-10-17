@@ -161,6 +161,7 @@
 	.black-card {
 		background-color: var(--black-900);
 		color: var(--white-100);
+		box-shadow: var(--shadow-size) var(--shadow-size) 0 var(--grey-600);
 
 		h2 {
 			color: var(--white-100);
