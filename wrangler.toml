@@ -1,0 +1,13 @@
+name = "hue-far-apart"
+#main = "./dist/index.html"
+compatibility_date = "2025-10-17"
+
+# routes = [
+#   { pattern = "michaelgoss.de", custom_domain = true },
+#   { pattern = "*michaelgoss.de/*", zone_name = "michaelgoss.de" }
+# ]
+
+[assets]
+directory = "./dist"
+# binding = "ASSETS"
+
