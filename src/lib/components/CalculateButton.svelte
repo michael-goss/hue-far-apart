@@ -1,7 +1,7 @@
 <script lang="ts">
-	import Tooltip from "./Tooltip.svelte"
-	import type { Color, Distance } from "./types"
-	import { calculate_euclidean_distance } from "./utils"
+	import Tooltip from "$components/Tooltip.svelte"
+	import type { Color, Distance } from "$lib/types"
+	import { calculate_euclidean_distance } from "$lib/utils"
 	const {
 		color0,
 		color1,

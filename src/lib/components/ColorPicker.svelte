@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { Color } from "./types"
-	import { color_to_hex, hex_to_color } from "./utils"
+	import type { Color } from "$lib/types"
+	import { color_to_hex, hex_to_color } from "$lib/utils"
 
 	let {
 		color,

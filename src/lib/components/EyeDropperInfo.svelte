@@ -1,5 +1,5 @@
 <script lang="ts">
-	import warning_logo from "../assets/warning.png"
+	import warning_logo from "$assets/warning.png"
 	const has_eye_dropper = "EyeDropper" in window
 </script>
 

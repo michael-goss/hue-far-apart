@@ -1,6 +1,6 @@
 <script lang="ts">
-	import type { Calculation } from "./types"
-	import { color_to_hex } from "./utils"
+	import type { Calculation } from "$lib/types"
+	import { color_to_hex } from "$lib/utils"
 	let { calculations }: { calculations: Calculation[] } = $props()
 </script>
 

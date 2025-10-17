@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { Distance } from "./types"
+	import type { Distance } from "$lib/types"
 	let { distance }: { distance: Distance } = $props()
 </script>
 

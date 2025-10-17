@@ -1,18 +1,18 @@
 <script lang="ts">
-	import mg_logo from "./assets/logo.svg"
-	import hue_far_apart_logo from "./assets/hue-far-apart.svg"
-	import github_logo from "./assets/github.svg"
+	import mg_logo from "$assets/logo.svg"
+	import hue_far_apart_logo from "$assets/hue-far-apart.svg"
+	import github_logo from "$assets/github.svg"
 
-	import CalculateButton from "./lib/CalculateButton.svelte"
-	import ColorPicker from "./lib/ColorPicker.svelte"
-	import DistanceResult from "./lib/DistanceResult.svelte"
-	import History from "./lib/History.svelte"
-	import Headline from "./lib/Headline.svelte"
-	import EyeDropperInfo from "./lib/EyeDropperInfo.svelte"
+	import CalculateButton from "$components/CalculateButton.svelte"
+	import ColorPicker from "$components/ColorPicker.svelte"
+	import DistanceResult from "$components/DistanceResult.svelte"
+	import History from "$components/History.svelte"
+	import Headline from "$components/Headline.svelte"
+	import EyeDropperInfo from "$components/EyeDropperInfo.svelte"
 
-	import { round_number } from "./lib/utils"
-	import { create_local_store, clear_local_store } from "./lib/localStore.svelte"
-	import type { Calculation, Color, Distance } from "./lib/types"
+	import { round_number } from "$lib/utils"
+	import { create_local_store, clear_local_store } from "$lib/localStore.svelte"
+	import type { Calculation, Color, Distance } from "$lib/types"
 
 	let color0: Color | null = $state(null)
 	let color1: Color | null = $state(null)

@@ -1,4 +1,4 @@
-import type { Color } from "./types"
+import type { Color } from "$lib/types"
 
 export const color_to_hex = (color: Color | null): string => {
 	if (!color) return ""
