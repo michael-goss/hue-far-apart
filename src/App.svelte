@@ -2,14 +2,17 @@
 	import mg_logo from "./assets/logo.svg"
 	import hue_far_apart_logo from "./assets/hue-far-apart.svg"
 	import github_logo from "./assets/github.svg"
-	import { create_local_store, clear_local_store } from "./lib/localStore.svelte"
+
 	import CalculateButton from "./lib/CalculateButton.svelte"
 	import ColorPicker from "./lib/ColorPicker.svelte"
 	import DistanceResult from "./lib/DistanceResult.svelte"
 	import History from "./lib/History.svelte"
-	import { round_number } from "./lib/utils"
-	import type { Calculation, Color, Distance } from "./lib/types"
 	import Headline from "./lib/Headline.svelte"
+	import EyeDropperInfo from "./lib/EyeDropperInfo.svelte"
+
+	import { round_number } from "./lib/utils"
+	import { create_local_store, clear_local_store } from "./lib/localStore.svelte"
+	import type { Calculation, Color, Distance } from "./lib/types"
 
 	let color0: Color | null = $state(null)
 	let color1: Color | null = $state(null)
@@ -42,9 +45,11 @@
 
 <main>
 	<h1><img src={hue_far_apart_logo} alt="Hue Far Apart" /></h1>
+	<h2>Calculate how far apart two colors really are</h2>
 	<a href="https://www.michaelgoss.de" target="_blank" rel="noopener noreferrer">
 		<span>created by</span><img src={mg_logo} alt="Logo michaelgoss.de" />
 	</a>
+	<EyeDropperInfo />
 	<section class="card">
 		<Headline index={1} title="Select your colors" />
 		<div class="color-pickers">
@@ -106,6 +111,10 @@
 		text-align: center;
 		transform: scaleY(0.8);
 		line-height: 1px;
+	}
+
+	h2 {
+		text-align: center;
 	}
 
 	a {

@@ -48,6 +48,9 @@
 	--shadow-size: 0.2rem;
 	--card-radius: 1rem;
 
+	--orange-300: #fff3cd;
+	--orange-400: #ffc107;
+
 	color: var(--grey-700);
 }
 
