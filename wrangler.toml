@@ -1,13 +1,11 @@
 name = "hue-far-apart"
-#main = "./dist/index.html"
 compatibility_date = "2025-10-17"
 
-# routes = [
-#   { pattern = "michaelgoss.de", custom_domain = true },
-#   { pattern = "*michaelgoss.de/*", zone_name = "michaelgoss.de" }
-# ]
+routes = [
+  { pattern = "hue-far-apart.website", custom_domain = true },
+  { pattern = "*hue-far-apart.website/*", zone_name = "hue-far-apart.website" }
+]
 
 [assets]
 directory = "./dist"
-# binding = "ASSETS"
 
